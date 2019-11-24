@@ -150,7 +150,7 @@ dockutil --add /Applications/Google\ Chrome.app --position 1
 dockutil --move 'Messages' --position 2
 dockutil --add /Applications/Telegram.app --position 3
 dockutil --add /Applications/Spotify.app --position 4
-dockutil --add /Applications/Sublime Text.app --position 4
-dockutil --add /Applications/iTerm.app --position 4
+dockutil --add /Applications/Sublime Text.app --position 5
+dockutil --add /Applications/iTerm.app --position 6
 
 printf "You should reboot now\n"
