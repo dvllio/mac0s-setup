@@ -96,7 +96,7 @@ URLs=(
 
 for i in "${URLs[@]}"; 
 do
-  wget -P ~/Downloads/ "$i"
+  wget -q -P ~/Downloads/ "$i"
   DMG=$(echo $i | rev | cut -d / -f 1 | rev)
   VOL=$(hdiutil attach ~/Downloads/$DMG | grep -i '/Volumes/' | awk -F " " '{print $3}')
 
