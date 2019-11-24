@@ -14,9 +14,9 @@ sudo scutil --set HostName $mac_os_name
 sudo scutil --set LocalHostName $mac_os_name
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $mac_os_name
 
-printf "Getting rid of enrollment agent..\n"
-sudo launchctl remove com.apple.ManagedClientAgent.enrollagent
-sudo launchctl unload com.apple.ManagedClientAgent.enrollagent
+#printf "Getting rid of enrollment agent..\n"
+#sudo launchctl remove com.apple.ManagedClientAgent.enrollagent
+#sudo launchctl unload com.apple.ManagedClientAgent.enrollagent
 
 printf "Disabling guest user..\n"
 sudo dscl . -delete /Users/Guest
@@ -25,8 +25,22 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -boo
 
 # Applies system and application defaults.
 
+printf "System - Setting date and time format\n"
+defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM HH:mm:ss"
+
 printf "System - Enaling Dark mode\n"
 defaults write NSGlobalDomain AppleInterfaceStyle Dark
+
+printf "System - Setting accent colour mode\n"
+defaults write NSGlobalDomain AppleAccentColor -int 6
+
+printf "System - Enabling tap to click\n"
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+printf "System - Silencing click\n"
+defaults write com.apple.AppleMultitouchTrackpad ActuationStrength -int 0
 
 printf "System - Expand save panel by default\n"
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -35,14 +49,17 @@ printf "System - Avoid creating .DS_Store files on network & USB volumes\n"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
-printf "System - Disable Bonjour\n"
-sudo defaults write /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist ProgramArguments -array-add "-NoMulticastAdvertisements"
-
 printf "Bluetooth - Increase sound quality for headphones/headsets\n"
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
+printf "System - Minimize to application\n"
+defaults write com.apple.dock minimize-to-application -bool true
+
 printf "Dock - Don't show recently used apps"
 defaults write com.apple.dock show-recents -bool false
+
+printf "iTunes - Disable autosync\n"
+defaults write com.apple.itunes dontAutomaticallySyncIPods -bool true
 
 printf "iCloud - Save to disk by default\n"
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
@@ -87,6 +104,10 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 
 printf "Safari - Add a context menu item for showing the Web Inspector in web views\n"
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+printf "Disk Utility - Enabling debug menu\n"
+defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
+defaults write com.apple.DiskUtility advanced-image-options -bool true
 
 printf "TextEdit - Use plain text mode for new documents\n"
 defaults write com.apple.TextEdit RichText -int 0

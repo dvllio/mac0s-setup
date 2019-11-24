@@ -2,5 +2,14 @@
 
 # Apply application settings
 
-cp ~/Dropbox/MacOS-Setup/dotfiles/$HOST.bash_profile ~/.bash_profile
-cp ~/Dropbox/MacOS-Setup/dotfiles/$HOST.my-zshrc ~/.zshrc
+printf "Google Chrome - Disabling backswipe\n"
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
+
+printf "Sublime Text - Set as default plain text editor\n"
+duti -s com.sublimetext.3 public.plain-text all
+duti -s com.sublimetext.3 net.daringfireball.markdown all
+
+printf "Transmission - Disabling disclaimers\n"
+defaults write org.m0k.transmission WarningDonate -bool false
+defaults write org.m0k.transmission WarningLegal -bool false
