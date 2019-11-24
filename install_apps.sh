@@ -19,6 +19,7 @@ brew install git
 brew install mas            # Apple store cli  
 brew install wget
 brew install htop
+brew install dockutil
 
 # Install ZSH and Oh My ZSH
 brew install zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting 

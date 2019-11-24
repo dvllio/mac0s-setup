@@ -128,4 +128,29 @@ defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 printf "App Store - Enable Debug Menu in the Mac App Store\n"
 defaults write com.apple.appstore ShowDebugMenu -bool true
 
+printf "Removing unused dock icons\n"
+dockutil --remove 'Siri'
+dockutil --remove 'Launchpad'
+dockutil --remove 'Safari'
+dockutil --remove 'Mail'
+dockutil --remove 'Contacts'
+dockutil --remove 'Calendar'
+dockutil --remove 'Notes'
+dockutil --remove 'Reminders'
+dockutil --remove 'Maps'
+dockutil --remove 'Photos'
+dockutil --remove 'FaceTime'
+dockutil --remove 'News'
+dockutil --remove 'iTunes'
+dockutil --remove 'App Store'
+dockutil --remove 'System Preferences'
+
+printf "Setting dock icons\n"
+dockutil --add /Applications/Google\ Chrome.app --position 1
+dockutil --move 'Messages' --position 2
+dockutil --add /Applications/Telegram.app --position 3
+dockutil --add /Applications/Spotify.app --position 4
+dockutil --add /Applications/Sublime Text.app --position 4
+dockutil --add /Applications/iTerm.app --position 4
+
 printf "You should reboot now\n"
