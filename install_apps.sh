@@ -91,12 +91,12 @@ done
 
 printf "Downloading and installing apps via .dmg links..\n"
 URLs=(
-  https://update.sonos.com/software/mac/mdcr/SonosDesktopController1051.dmg
+  https://www.sonos.com/redir/controller_software_mac
 )
 
 for i in "${URLs[@]}"; 
 do
-  wget -q -P ~/Downloads/ "$i"
+  wget -q --show-progress --user-agent=Mozilla --content-disposition -E -c -P ~/Downloads/ "$i"
   DMG=$(echo $i | rev | cut -d / -f 1 | rev)
   VOL=$(hdiutil attach ~/Downloads/$DMG | grep -i '/Volumes/' | awk -F " " '{print $3}')
 
