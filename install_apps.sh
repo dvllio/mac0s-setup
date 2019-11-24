@@ -20,14 +20,7 @@ brew install mas            # Apple store cli
 brew install wget
 brew install htop
 brew install dockutil
-
-# Install ZSH and Oh My ZSH
 brew install zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting 
-
-chsh -s /usr/local/bin/zsh
-/usr/local/bin/zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 
 printf "brew: Installing apps\n"
 brew cask install iterm2
@@ -119,3 +112,6 @@ do
 
   hdiutil unmount "$VOL"
 done
+
+# Install Oh My ZSH and set by default
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
