@@ -6,13 +6,9 @@ This is completely catered to my own taste and installs applications that I use.
 
 These scripts will work on a freshly installed MacOS device. It uses [Homebrew](https://brew.sh) and the [Mac App Store CLI](https://github.com/mas-cli/mas) to install applications.
 
-There's also the directory 'offline-apps/' and the install_apps.sh script runs to all downloaded .pkg files and installs them as well. At the bottom of install_apps.sh is also a list of URLs to DMG files that it will download, mount and detect whether to just move it to /Applications or use the installer cli.
-
 # Steps
 
-- sh apply_os_settings.sh
-- reboot
-- sh install_apps.sh
-- reboot
-- sh apply_app_settings.sh
-- reboot
+1/ sh install_apps.sh
+2/ sh apply_app_settings.sh
+3/ sh apply_os_settings.sh
+4/ reboot
