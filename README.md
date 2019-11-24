@@ -8,7 +8,7 @@ These scripts will work on a freshly installed MacOS device. It uses [Homebrew](
 
 # Steps
 
-1/ sh install_apps.sh
-2/ sh apply_app_settings.sh
-3/ sh apply_os_settings.sh
-4/ reboot
+1. sh install_apps.sh
+2. sh apply_app_settings.sh
+3. sh apply_os_settings.sh
+4. reboot
