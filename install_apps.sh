@@ -84,11 +84,6 @@ mas install 409203825
 printf "AppStore: Installing iMovie\n"
 mas install 408981434
 
-printf "Installing offline apps..\n"
-for f in offline-apps/*.pkg ; 
-  do sudo installer -pkg "$f" -target /
-done
-
 printf "Downloading and installing apps via .dmg links..\n"
 URLs=(
   https://www.sonos.com/redir/controller_software_mac
