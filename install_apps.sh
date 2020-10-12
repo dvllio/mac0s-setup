@@ -15,6 +15,7 @@ printf "Installing xcode cli utils\n"
 xcode-select --install
 
 printf "brew: Installing cli packages\n"
+brew tap homebrew/cask-drivers
 brew install git
 brew install mas            # Apple store cli  
 brew install wget
@@ -30,10 +31,9 @@ brew cask install sublime-text
 brew cask install visual-studio-code
 brew cask install spotify
 brew cask install vlc
+brew cask install sonos
 brew cask install transmission
-brew cask install flux
 brew cask install appcleaner
-brew cask install dropbox
 brew cask install cyberduck
 brew cask install steam
 brew cask install openemu
@@ -84,30 +84,6 @@ mas install 409203825
 
 printf "AppStore: Installing iMovie\n"
 mas install 408981434
-
-printf "Downloading and installing apps via .dmg links..\n"
-URLs=(
-  https://www.sonos.com/redir/controller_software_mac2
-)
-
-for i in "${URLs[@]}"; 
-do
-  wget -q --show-progress --user-agent=Mozilla --content-disposition -E -c -P ~/Downloads/ "$i"
-  DMG=$(echo $i | rev | cut -d / -f 1 | rev)
-  VOL=$(hdiutil attach ~/Downloads/$DMG | grep -i '/Volumes/' | awk -F " " '{print $3}')
-
-  if [ -e "$VOL"/*.app ]; then
-    sudo cp -rf "$VOL"/*.app /Applications/
-  elif [ -e "$VOL"/*.pkg ]; then
-    package=$(ls -1 "$VOL" | grep .pkg | head -1)
-    sudo installer -pkg "$VOL"/"$package" -target /
-  elif [ -e "$VOL"/*.mpkg ]; then
-    package=$(ls -1 "$VOL" | grep .mpkg | head -1)
-    sudo installer -pkg "$VOL"/"$package" -target /
-  fi
-
-  hdiutil unmount "$VOL"
-done
 
 # Install Oh My ZSH and set by default
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

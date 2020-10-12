@@ -12,6 +12,7 @@ defaults write org.m0k.transmission WarningLegal -bool false
 
 printf "Setting .gitignore\n"
 wget -q -P ~/Downloads/ https://raw.githubusercontent.com/dvllio/mac0s-setup/master/dotfiles/.gitignore
+mkdir ~/Git
 cp ~/Downloads/.gitignore ~/Git/.gitignore
 git config --global core.excludesfile ~/Git/.gitignore
 
