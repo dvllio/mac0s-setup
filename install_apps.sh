@@ -87,7 +87,7 @@ mas install 408981434
 
 printf "Downloading and installing apps via .dmg links..\n"
 URLs=(
-  https://www.sonos.com/redir/controller_software_mac
+  https://www.sonos.com/redir/controller_software_mac2
 )
 
 for i in "${URLs[@]}"; 
