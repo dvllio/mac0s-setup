@@ -16,6 +16,7 @@ xcode-select --install
 
 printf "brew: Installing cli packages\n"
 brew tap homebrew/cask-drivers
+brew tap homebrew/cask-versions
 brew install git
 brew install mas            # Apple store cli  
 brew install wget
