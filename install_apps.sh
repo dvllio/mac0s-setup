@@ -57,7 +57,7 @@ printf "AppStore: Installing The Unarchiver\n"
 mas install 425424353
 
 printf "AppStore: Installing NordVPN\n"
-mas install 1116599239
+mas install 905953485
 
 printf "AppStore: Installing LanScan\n"
 mas install 472226235
