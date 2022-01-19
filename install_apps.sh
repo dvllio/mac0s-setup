@@ -18,7 +18,7 @@ printf "brew: Installing cli packages\n"
 brew tap homebrew/cask-drivers
 brew tap homebrew/cask-versions
 brew install git
-brew install mas            # Apple App Store CLI
+brew install mas            # Mac App Store CLI
 brew install wget
 brew install htop
 brew install dockutil
