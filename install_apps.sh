@@ -18,26 +18,30 @@ printf "brew: Installing cli packages\n"
 brew tap homebrew/cask-drivers
 brew tap homebrew/cask-versions
 brew install git
-brew install mas            # Apple store cli  
+brew install mas            # Apple App Store CLI
 brew install wget
 brew install htop
 brew install dockutil
 brew install zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting 
 
 printf "brew: Installing apps\n"
-brew cask install iterm2
-brew cask install google-chrome
-brew cask install firefox
-brew cask install sublime-text
-brew cask install visual-studio-code
-brew cask install spotify
-brew cask install vlc
-brew cask install sonos
-brew cask install transmission
-brew cask install appcleaner
-brew cask install cyberduck
-brew cask install steam
-brew cask install openemu
+brew install --cask iterm2
+brew install --cask google-chrome
+brew install --cask firefox
+brew install --cask sublime-text
+brew install --cask visual-studio-code
+brew install --cask insomnia
+brew install --cask spotify
+brew install --cask vlc
+brew install --cask sonos
+brew install --cask transmission
+brew install --cask appcleaner
+brew install --cask cyberduck
+brew install --cask steam
+brew install --cask openemu
+brew install --cask calibre
+brew install --cask zoom
+brew install --cask discord
 
 # Installs App Store software.
 
